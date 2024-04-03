@@ -14,6 +14,9 @@ import * as posenet from "@tensorflow-models/posenet";
 import Webcam from "react-webcam";
 import { drawKeypoints, drawSkeleton } from "./utilities";
 
+const WEBCAM_WIDTH = "100vw";
+const WEBCAM_HEIGHT = "100vh";
+
 function App() {
   const webcamRef = useRef(null);
   const canvasRef = useRef(null);
@@ -21,7 +24,7 @@ function App() {
   //  Load posenet
   const runPosenet = async () => {
     const net = await posenet.load({
-      inputResolution: { width: 640, height: 480 },
+      inputResolution: { width: 1000, height: 1200 },
       scale: 0.8,
     });
     //
@@ -77,8 +80,8 @@ function App() {
             right: 0,
             textAlign: "center",
             zindex: 9,
-            width: 640,
-            height: 480,
+            width: WEBCAM_WIDTH,
+            height: WEBCAM_HEIGHT,
           }}
         />
 
@@ -92,8 +95,8 @@ function App() {
             right: 0,
             textAlign: "center",
             zindex: 9,
-            width: 640,
-            height: 480,
+            width: WEBCAM_WIDTH,
+            height: WEBCAM_HEIGHT,
           }}
         />
       </header>
